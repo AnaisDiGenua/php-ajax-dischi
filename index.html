@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="#"> 
     <title>Vue Dischi</title>
 </head>
 <body>
@@ -23,6 +24,15 @@
         <main>
             <!-- inizio sezione lista album -->
             <section class="container">
+                <!-- ricerca album per genere -->
+                <select class= "genre" v-model= "genreValue" @change= "changeSelect()">
+                    <option value="">Select genre</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Metal">Metal</option>
+                </select>
+                <!-- /ricerca album per genere -->
                 <div class="row">
                     <div v-for="album in database" :key="album.id" class="album">
                         <img :src="album.poster" :alt="album.title">

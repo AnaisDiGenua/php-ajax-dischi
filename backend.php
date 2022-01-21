@@ -74,4 +74,15 @@ $database = [
 
 header("Content-Type: application/json");
 
-echo json_encode($database);
+$response = $database;
+
+if(!empty($_GET["genre"])) {
+	$response = [];
+	foreach($database as $cd) {
+		if($cd["genre"] == $_GET["genre"]) {
+			$response[] = $cd;
+		}
+	}
+};
+
+echo json_encode($response);
